@@ -1,0 +1,540 @@
+body {
+	margin: 0;
+	background: #5CDB95;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: 400;
+}
+/** 
+	START CONTAINERS AND GRID LAYOUT
+**/
+.MainContainer {
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.whiteContainer{
+	padding: 15px 15px;
+	background-color: white;
+	overflow: hidden;
+}
+/**
+	END CONTAINERS AND GRID LAYOUT
+**/
+/** 
+	START THEME
+**/
+	.button {
+		border: none;
+		outline: 0;
+		display: inline-block;
+		padding: 8px;
+		color: #5CDB95;
+		background-color: #05386B;
+		text-align: center;
+		cursor: pointer;
+		width: 100%;
+	}
+
+	.critical {
+		background-color: #B33A3A;
+	}
+  
+	.button:hover {
+		background-color: #e3eeef;
+	}
+
+	.infoMSG{
+		color: #B33A3A;
+	}
+/**
+	END THEME
+**/
+/** 
+	START HEADER
+**/
+header {
+	background: #05386B;
+}
+
+header::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+
+#TextLogo {
+	float: left;
+	padding: 5px 0;
+	color: #5CDB95;
+	border-style: double; 
+	border-width: 5pt;
+	border-color: #5CDB95;
+	margin-left: 20pt;
+	margin-bottom: 20pt;
+}
+/** 
+	END HEADER 
+**/
+/** 
+	START NAV BAR 
+**/
+nav {
+	float: right;
+	width: 75%;
+}
+
+nav ul {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	float: left;
+	margin-left: 5%;
+	padding-top: 35px;
+	position: relative;
+}
+
+nav ul > li > a {
+	color: #5CDB95;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+nav ul > li > a:hover {
+	color: #e3eeef;
+}
+
+.NavBar ul > li > a::before {
+	content: '';
+	display: block;
+	height: 5px;
+	background-color: #e3eeef;
+	position: absolute;
+	top: 0;
+	width: 0%;
+}
+
+.NavBar ul > li > a:hover::before{
+	width: 100%;
+}
+
+nav .icon {
+	display: none;
+	font-size: 55px;
+	color: #45b8ac;
+	padding: 15px;
+}
+
+.ResponsiveNavBar{
+	width: 100%;
+}
+
+.ResponsiveNavBar ul{
+	display: block;
+}
+.ResponsiveNavBar ul li{
+	width: 100%;
+	padding: 0px 0px 15px 27px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+.ResponsiveNavBar ul li span{
+	padding-left: 5px;
+}
+/** 
+	END NAV BAR 
+**/
+
+/**
+	WELCOME TEXT
+**/
+.welcome-text{
+	position: absolute;
+	width 600px;
+	height 300px;
+	margin: 15% 20%;
+	text-align: center;
+}
+.welcome-text h1{
+	text-align: center;
+	color: #e3eeef;
+	text-transform: uppercase;
+	font-size: 40px;
+}
+.welcome-text h2{
+	text-align: center;
+	color:  #05386B;
+	text-transform: lowercase;
+	font-size: 24px;
+}
+
+/**
+	END WELCOME TEXT
+**/
+/** 
+	START PRODUCT PAGE
+**/ 
+
+.tab {
+  float: left;
+  border: 1px solid #379683;
+  background-color: #379683;
+  width: 20%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.tab h2{
+  float: middle;
+  color: #05386b;
+  padding: 10px;
+}
+
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: #e3eeef;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #8EE4AF;
+}
+
+.tab button.active {
+  background-color: #5CDB95;
+}
+
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  width: 80%;
+  border-left: none;
+  height: 500px;
+  box-sizing: border-box;
+}
+
+.products_table {
+	border-collapse: collapse;
+	background-color: gray;
+}
+
+.products_table, .products_table tbody, .products_table th, .products_table td, .products_table tr { 
+	display: block;
+}
+
+.products_table thead tr { 
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+	
+.products_table, .products_table th {
+	border: 1px solid black;
+}
+	
+.products_table td { 
+	position: relative;
+	padding: 5px 5px 5px 5px;
+	padding-left: 30%; 
+	width: 70%;
+}
+
+.products_table tr:nth-child(even) {
+	background-color: lightgray;
+}
+	
+.products_table td:before { 
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	width: 45%; 
+	padding-right: 10px; 
+	white-space: nowrap;
+}
+
+/*
+Label the data
+*/
+.products_table td:nth-of-type(1):before { content: "Name"; }
+.products_table td:nth-of-type(2):before { content: "Product type"; }
+.products_table td:nth-of-type(3):before { content: "Description"; }
+.products_table td:nth-of-type(4):before { content: "Price"; }
+.products_table td:nth-of-type(5):before { content: "QTY in stock"; }
+
+
+.search-container{
+	padding: 20px;
+	display: block;
+	float: left;
+	width: 80%;
+	box-sizing: border-box;
+}
+
+.search-container input[type=text]{
+	width: 100%;
+	padding: 18px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+
+}
+.editProductBtn, .addCartBtn {
+	width: 200px;
+	margin: 5px 5px 5px 0px;
+	display:none;
+}
+/** 
+	END PRODUCT PAGE
+**/
+/**
+	START LOGIN PAGE
+**/
+.login-container{
+	padding: 25px;
+	width: 80%;
+	max-width: 500px;
+	margin: 10px auto !important;
+}
+
+.login-container input[type=text], .login-container input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+/** 
+	END LOGIN PAGE 
+**/
+
+/** 
+	START ABOUT PAGE
+**/
+
+.column-half {
+  float: left;
+  width: 50%;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 8px;
+}
+
+.about-section {
+  padding: 10px;
+  text-align: center;
+  background-color: #5CDB95;
+  color: #05386B;
+  font-size: 18px;
+}
+
+.about-section > h1{
+ color: #e3eeef;
+}
+
+.product-section {
+  padding: 35px;
+  text-align: center;
+  background-color: #5CDB95;
+  color: #05386B;
+  font-size: 18px;
+}
+
+.product-section > h1{
+ color: #e3eeef;
+}
+
+.team-section > h2{
+ color: #e3eeef;
+ text-align: center;
+}
+
+.container {
+  padding: 0 16px;
+  color: #05386B;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: #379683;
+}
+
+/** 
+	END ABOUT PAGE
+**/
+
+/** 
+	START HELP PAGE
+**/
+.help-section {
+  padding: 10px;
+  text-align: center;
+  background-color: #5CDB95;
+  color: #05386B;
+  font-size: 18px;
+}
+
+.help-section > h1{
+ color: #e3eeef;
+}
+
+.titlehelp-section{
+  padding: 10px;
+  text-align: center;
+  background-color: #379683;
+  color: #05386B;
+  font-size: 18px;
+}
+
+.titlehelp-section > h1{
+ color: #e3eeef;
+}
+
+/** 
+	END HELP PAGE
+**/
+/** 
+	START CART PAGE
+**/
+.basketTotalContainer {
+   background-color: white;
+     text-align: right;
+}
+
+.basketTotalContainer h4 {
+  color: red;
+}
+
+/** 
+	END CART PAGE
+**/
+/** 
+	START ACCOUNT PAGE
+**/
+.accountDetailsContainer{
+	width: 100%;
+	margin: 10px auto !important;
+}
+
+.accountDetailsContainer input[type=text], .accountDetailsContainer input[type=password], .accountDetailsContainer select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.accountDetailsContainer input[type=text]:disabled {
+	background: #dddddd;
+	}
+
+.accordion {
+	padding: 15px;
+	background-color: lightgray;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.3s;
+  }
+  
+  .active, .accordion:hover {
+	background-color: gray; 
+  }
+  
+  .accordion_content {
+	padding: 15px 15px;
+	display: none;
+	background-color: white;
+	overflow: hidden;
+  }
+/** 
+	END ACCOUNT PAGE
+**/
+/** 
+	START USERS PAGE
+**/
+.UserList {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.UserList, .UserList th, .UserList td {
+	border: 1px solid #ccc;
+	padding: 10px;
+  }
+/** 
+	END USERS PAGE
+**/
+/** 
+	START EDIT PRODUCT PAGE
+**/
+.productDetailsContainer input[type=text], .productDetailsContainer select, .productDetailsContainer textarea, .productDetailsContainer input[type=number]{
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+/** 
+	START
+**/
+/** 
+	START MEDIA QUERIES 
+**/
+@media only screen and (max-width: 1050px) {
+	nav li {
+		margin-left: 2%;
+	}
+}
+@media only screen and (max-width: 800px) {
+	.MainContainer {
+		width: 100%;
+	}
+
+	nav ul {
+		display: none;
+	}
+	nav .icon {
+		display: block;
+		float: right;
+		position: absolute;
+		right: 0;
+		top: 0;
+	  }
+	.tab, .tabcontent, .search-container, .column-half {
+		width: 100%;
+	}
+}
+/** 
+	END MEDIA QUERIES 
+**/

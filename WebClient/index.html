@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+		<script src="js/jquery-3.5.1.min.js"></script>
+		<script src="js/auth.js"></script>
+		<script src="js/script.js"></script>
+        <script src="js/SPA.js"></script>
+		<script src="js/product.js" defer></script>
+ 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset="UTF-8">
+        <title>Tech.com</title>
+	</head>
+    <body>
+        <header>
+            <h1 id="TextLogo">Tech.com</h1>
+            <nav id="nav" class="NavBar">
+                <ul>
+                    <li><a href="home">Home</a></li>
+                    <li><a href="products">Products</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="help">Help</a></li>
+					<li id="loginNavBtn"><a href="login">login</a></li>
+					<li class="staffNavBtn" style="display:none"><a href="users">Users</a></li>
+					<li class="userNavBtn" style="display:none"><a href="myAccount">Account</a></li>
+		    <li class="cart userNavBtn" style="display:none"><a href="Cart">Cart (<span style="color:Yellow">0</span>)</a></li>
+                </ul>
+                <span id="ResponsiveNavBarIcon" class="icon" onclick="responsiveNavBar()">
+                    <i class="fa fa-bars"></i>
+                </span>
+            </nav>
+        </header>
+        <article id="home">
+            <div class="welcome-text">
+                <h1>Welcome to Everything Tech.com</h1>
+                <h2>the vision of our company is to fulfils customers from every discipline and culture who seeks a place where they can find techs and gadgets, they want to buy online.</h2>
+            </div> 
+        </article>
+        <article id="products" hidden="hidden">
+		<div class="tab">
+		<h2>PRODUCTS</h2>
+		<button class="tablinks" onclick="openFile(event, 'All')" id="defaultOpen">All</button>
+  		<button class="tablinks" onclick="openFile(event, 'Accessories')">Accessories </button>
+		<button class="tablinks" onclick="openFile(event, 'Keyboards')">Keyboards & Mouse </button>
+  		<button class="tablinks" onclick="openFile(event, 'Headsets')">Headsets </button>
+  		<button class="tablinks" onclick="openFile(event, 'Gaming')">Gaming Hardware </button>
+		<button class="tablinks" onclick="openFile(event, 'Mobile')">Mobile Phones </button>
+  		<button class="tablinks" onclick="openFile(event, 'Software')">Software</button>
+		</div>
+		<div class = "search-container">
+		<label for="search"><b>Search For Products</b></label>
+		<input  type="text" id="search-input" name="search" placeholder="Search by Product Name">
+		<button class="editProductBtn button" onClick="window.location.hash='newProduct'">Create New Product</button>
+		</div>
+		<div id="All" class="tabcontent">
+		<table style="width:100%" id="products_table" class="products_table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Product type</th>
+						<th>Description</th>
+						<th>Price</th>
+						<th>Qty</th>
+					</tr>
+				</thead>
+				<tbody id="myTable">	
+				</tbody>			
+			</table>
+			<br/>
+		
+		<p id ="Invalid"></p>
+		</div>
+		<div id="Accessories" class="tabcontent">
+		<table style="width:100%" id="products_table_1" class="products_table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Product type</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Qty</th>
+				</tr>
+			</thead>
+				<tbody id="myTable_1">
+				</tbody>			
+		</table>
+		<br/>
+ 		<p id ="Invalid_1"></p> 
+		</div>
+		<div id="Keyboards" class="tabcontent">
+		<table style="width:100%" id="products_table_2" class="products_table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Product type</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Qty</th>
+				</tr>
+			</thead>
+				<tbody id="myTable_2">
+				</tbody>			
+		</table>
+		<br/>
+ 		<p id ="Invalid_2"></p> 
+		</div>
+		<div id="Headsets" class="tabcontent">
+		<table style="width:100%" id="products_table_3" class="products_table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Product type</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Qty</th>
+				</tr>
+			</thead>
+				<tbody id="myTable_3">
+				</tbody>			
+		</table>  
+		<br/>
+		<p id ="Invalid_3"></p>		
+		</div>
+		<div id="Gaming" class="tabcontent">
+		<table style="width:100%" id="products_table_4" class="products_table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Product type</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Qty</th>
+				</tr>
+			</thead>
+				<tbody id="myTable_4">
+				</tbody>			
+		</table>  
+		<br/>
+		<p id ="Invalid_4"></p>	 
+		</div>
+		<div id="Mobile" class="tabcontent">
+		<table style="width:100%" id="products_table_5" class="products_table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Product type</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Qty</th>
+				</tr>
+			</thead>
+				<tbody id="myTable_5">
+				</tbody>			
+		</table>  
+		<br/>
+		<p id ="Invalid_5"></p>	
+		</div>
+		<div id="Software" class="tabcontent">
+		<table style="width:100%" id="products_table_6" class="products_table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Product type</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Qty</th>
+				</tr>
+			</thead>
+				<tbody id="myTable_6">
+				</tbody>			
+		</table>  
+		<br/>
+		<p id ="Invalid_6"></p>	
+		</div>
+        </article>
+        <article id="about" hidden="hidden">
+            <div class="card about-section">
+  		<h1>About Us</h1>
+  			<p>We believe in working closely with our customer and were willing to adapt our service therefore, we encourage customers to contact us at any time with question, comments, and feedback.</p>
+ 	    </div>
+	    <div class="card product-section">
+  		<h1>Our Product</h1>
+  			<p>Everything Tech.com prides itself in being the lead provider in computer solutions for all Australians. Known for fast delivery, great customer service and reliable knowledge of computer parts and accessories, we are the leading name in everything technology based. We are committed to competitive pricing, great service and being your go-to company for all thing's technology related!</p>
+ 			<p>Our head office is based in Perth, but we have stores in all states and territories throughout the whole of Australia. Pop into your local store for a chat with one of our friendly and knowledgeable salespeople. </p>
+	    </div>
+
+
+		<div class="team-section">
+		<h2>Our Team</h2>
+			<div class="row">
+  				<div class="column-half">
+    					<div class="card">
+     					<div class="container">
+       					<h2>Juliver P. Ybarsabal</h2>
+        					<p class="title">Director and Co-Manager of Sales </p>
+        					<p>Student at Murdoch University</p>
+						<p>Phone: 93999990</p>
+       						<p>Juliver@everythingtech.com </p>
+        					<p><button class="button">Contact</button></p>
+     					 </div>
+   				 </div>
+ 			 </div>
+
+  		<div class="column-half">
+    			<div class="card">
+      				<div class="container">
+        			<h2>Kieran B 't Hart </h2>
+        				<p class="title">Director and Co-Manager of Sales </p>
+        				<p>Student at Murdoch University</p>
+					<p>Phone: 9399 9991</p>
+       					<p>Kieran@everythingtech.com </p>
+        				<p><button class="button">Contact</button></p>
+     				 </div>
+    			</div>
+  		</div>
+		</div>
+
+        </article>
+        <article id="help" hidden="hidden">
+	<div class="titlehelp-section">
+            <h1>How can we Help?</h1>
+	</div>	 
+	     <div class="card help-section">
+      		<h1>How to use our application?</h1>
+      		<p>With our navigation system on top of our website you can view different section of our application, 
+		the navigation bar is a user interface that intends to provide customers aid in accessing information in different pages (Home, Product, About, Help, Login).</p>
+    	    </div>
+	    <div class="card help-section">
+      		<h1>How to search for products?</h1>
+      		<p>In our Product page we provide users with two level of searches. 
+		The first level is Key board search using our search box, users can input words or letters and our application will automatically look for matching  products that contains same name or holds one or more similar letters specified by user input. 
+		The second level of search is browsing, using our tab bar users can now look through different categories that of our product & services provides from ALL products through Accessories, Keyboards  & mouse, headsets, gaming hardware, mobile phones, and software.</p>
+    	    </div>
+	    <div class="card help-section">
+      		<h1>How to see my Order?</h1>
+      		<p>If your a user with an account in our system you can see your order within the Cart page there you should be able to see how many items you've added to your cart
+		and the total amount due if you decided to purchase each product. Within the Cart page you're also able to remove or increase and decrease the quantity of products you want ot buy. </p>
+    	    </div>
+
+	    <div class="card help-section">
+      		<h1>How to create my account?</h1>
+      		<p>In our Login page if your not registered in our system yet, click on 'Register an Account' then after user authentication is granted you can now modify your own detail and submit an order for the company products and services.</p>
+    	    
+	    </div>
+	    <div class="card help-section">
+      		<h1>Where can you find us?</h1>
+      		<p>Tech.com provides an about page for the user to find & contact as at</p>
+		<p>Address: 12 Technology Boulevard, HILLARYS WA </p>
+		<p>Email address: hello@everythingtech.com</p>
+		<p><button class="button">Contact</button></p>
+    	    </div>
+
+        </article>
+        <article id="login" hidden="hidden">
+			<div class="card login-container">
+				<h1>Login</h1>
+				<p id="LoginMSG" class="infoMSG"></p>            
+				<label for="login_username"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" id="login_username" name="login_username" required><br/>
+				<label for="login_password"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" id="login_password" name="login_password" required><br/>
+				<button id="LoginBtn" class="button" type="submit">Login</button>
+				<br/>
+				<a href="#registerAcc">Register an Account</a>
+			</div>
+		</article>
+        <article id="registerAcc" hidden="hidden">
+			<div class="card login-container">
+				<h1>Create New Account</h1>
+				<p id="registerMSG" class="infoMSG"></p>            
+				<label for="register_username"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" id="register_username" name="register_username" required><br/>
+				<label for="register_fname"><b>First Name</b></label>
+				<input type="text" placeholder="Enter First Name" id="register_fname" name="register_fname" required><br/>
+				<label for="register_lname"><b>Last Name</b></label>
+				<input type="text" placeholder="Enter Last Name" id="register_lname" name="register_lname" required><br/>				
+				<label for="register_staddress"><b>Street Address</b></label>
+				<input type="text" placeholder="Enter Street Address" id="register_staddress" name="register_staddress" required><br/>	
+				<label for="register_email"><b>Email Address</b></label>
+				<input type="text" placeholder="Enter Email Address" id="register_email" name="register_email" required><br/>	
+				<label for="register_phone"><b>Phone Number</b></label>
+				<input type="text" placeholder="Enter Phone Number" id="register_phone" name="register_phone" required><br/>	
+				<label for="register_password"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" id="register_password" name="register_password" required><br/>
+				<button id="RegisterBtn" class="button" type="submit">Register</button>
+				<br/>
+				<a href="#login">Login with an existing account</a>
+			</div>
+		</article>
+        <article id="myAccount" hidden="hidden">
+			<div class="MainContainer">
+				<h2>My Account</h2>
+				<button class="accordion" onclick="toggleAccordion(this)">Logout</button>
+				<div class="accordion_content">
+					<button class="button" onclick="Logout()">Confirm Logout</button>
+				</div>
+				<button class="accordion" onclick="toggleAccordion(this)">Account Details</button>
+				<div class="accordion_content">
+					<div class="accountDetailsContainer">
+						<p id="updateAccountMSG" class="infoMSG"></p>            
+						<label for="updateAcc_username"><b>Username</b></label>
+						<input type="text" id="updateAcc_username" name="updateAcc_username" disabled><br/>
+						<label for="updateAcc_fname"><b>First Name</b></label>
+						<input type="text" placeholder="Enter First Name" id="updateAcc_fname" name="updateAcc_fname" required><br/>
+						<label for="updateAcc_lname"><b>Last Name</b></label>
+						<input type="text" placeholder="Enter Last Name" id="updateAcc_lname" name="updateAcc_lname" required><br/>				
+						<label for="updateAcc_staddress"><b>Street Address</b></label>
+						<input type="text" placeholder="Enter Street Address" id="updateAcc_staddress" name="updateAcc_staddress" required><br/>	
+						<label for="updateAcc_email"><b>Email Address</b></label>
+						<input type="text" placeholder="Enter Email Address" id="updateAcc_email" name="updateAcc_email" required><br/>	
+						<label for="updateAcc_phone"><b>Phone Number</b></label>
+						<input type="text" placeholder="Enter Phone Number" id="updateAcc_phone" name="updateAcc_phone" required><br/>	
+						<label for="updateAcc_password"><b>Password</b></label>
+						<input type="password" placeholder="Enter Password (if updating, otherwise leave empty)" id="updateAcc_password" name="updateAcc_password" required><br/>
+						<button id="updateAccBtn" class="button" type="submit">Update Account Details</button>
+						<br/>
+					</div>
+				</div>
+		</div>
+        </article>
+		<article id="Cart" hidden="hidden">
+			<div class="MainContainer">
+				<h2>My Cart</h2>
+				<p id="cartMSG" class="infoMSG"></p>  
+				<table style="width:100%" id="Cart_table" class="products_table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Product type</th>
+						<th>Description</th>
+						<th>Price</th>
+						<th>Qty</th>
+					</tr>
+				</thead>					
+				<tbody id="cart-products">
+				</tbody>	
+				</table>
+				<br/>
+				<input style="width:200px" class="button" type="submit" id="purchaseBtn" value="PURCHASE ORDER">
+				<br/>
+			</div> 
+        </article>
+		<article id="users" hidden="hidden">
+			<div class="MainContainer">
+				<div class="whiteContainer">
+					<h2>Users</h2>
+					<table class="UserList">
+						<thead>
+							<tr>
+								<th>Username</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>User Type</th>
+								<th>Edit User</th>
+							</tr>
+						</thead>
+						<tbody id="UserList"></tbody>
+					</table>
+				</div>
+			</div>
+		</article>
+		<article id="edituser" hidden="hidden">
+			<div class="MainContainer">
+				<div class="whiteContainer">
+					<h2>Edit User</h2>
+					<div class="accountDetailsContainer">
+						<p id="editAccountMSG" class="infoMSG"></p>   
+						<input type="hidden" id="editAcc_userID" value="0">
+						<label for="editAcc_UserType"><b>User Type</b></label>
+						<select name="editAcc_UserType" id="editAcc_UserType">
+						  <option value="1">Registered</option>
+						  <option value="2">Staff</option>
+						</select>         
+						<label for="editAcc_username"><b>Username</b></label>
+						<input type="text" id="editAcc_username" name="editAcc_username" disabled><br/>
+						<label for="editAcc_fname"><b>First Name</b></label>
+						<input type="text" placeholder="Enter First Name" id="editAcc_fname" name="editAcc_fname" required><br/>
+						<label for="editAcc_lname"><b>Last Name</b></label>
+						<input type="text" placeholder="Enter Last Name" id="editAcc_lname" name="editAcc_lname" required><br/>				
+						<label for="editAcc_staddress"><b>Street Address</b></label>
+						<input type="text" placeholder="Enter Street Address" id="editAcc_staddress" name="editAcc_staddress" required><br/>	
+						<label for="editAcc_email"><b>Email Address</b></label>
+						<input type="text" placeholder="Enter Email Address" id="editAcc_email" name="editAcc_email" required><br/>	
+						<label for="editAcc_phone"><b>Phone Number</b></label>
+						<input type="text" placeholder="Enter Phone Number" id="editAcc_phone" name="editAcc_phone" required><br/>	
+						<label for="editAcc_password"><b>Password</b></label>
+						<input type="password" placeholder="Enter Password (if updating, otherwise leave empty)" id="editAcc_password" name="editAcc_password" required><br/>
+						<button id="editAccBtn" class="button" type="submit">Update Account Details</button><br/><br/>
+						<button id="deleteAccBtn" class="button critical" type="submit">Delete Account</button>
+						<br/>
+					</div>
+				</div>
+			</div>
+		</article>
+		<article id="editProduct" hidden="hidden">
+			<div class="MainContainer">
+				<div class="whiteContainer">
+					<h2>Edit Product</h2>
+					<div class="productDetailsContainer">
+						<p id="editProductMSG" class="infoMSG"></p>  
+						<input type="hidden" id="editProduct_productID" value="0"> 
+						<label for="editProduct_name"><b>Product Name</b></label>
+						<input type="text" placeholder="Enter Product Name" id="editProduct_name" name="editProduct_name" required><br/>
+						<label for="editProduct_type"><b>Product Category</b></label>
+						<select name="editProduct_type" id="editProduct_type">
+						  <option value="1">Accessories</option>
+						  <option value="2">Keyboards & Mice</option>
+						  <option value="3">Headsets</option>
+						  <option value="4">Gaming Hardware</option>
+						  <option value="5">Mobile Phones</option>
+						  <option value="6">Software</option>
+						</select> 
+						<label for="editProduct_Desc"><b>Product Description</b></label><br/>
+						<textarea placeholder="Enter Product Description" rows="5" id="editProduct_Desc" name="editProduct_Desc" required></textarea><br/>
+						<label for="editProduct_price"><b>Product Price</b></label>
+						<input type="number" placeholder="Enter Product Price" id="editProduct_price" name="editProduct_price" required><br/>
+						<label for="editProduct_qty"><b>Product Quantity</b></label>
+						<input type="number" placeholder="Enter Product Quantity" id="editProduct_qty" name="editProduct_qty" required><br/>	
+						
+						<button id="editProductBtn" class="button" type="submit">Update Product Details</button><br/><br/>
+						<button id="deleteProductBtn" class="button critical" type="submit">Delete Product</button>
+						<br/>
+					</div>
+				</div>
+			</div>
+		</article>
+		<article id="newProduct" hidden="hidden">
+			<div class="MainContainer">
+				<div class="whiteContainer">
+					<h2>New Product</h2>
+					<div class="productDetailsContainer">
+						<p id="newProductMSG" class="infoMSG"></p>  
+						<label for="newProduct_name"><b>Product Name</b></label>
+						<input type="text" placeholder="Enter Product Name" id="newProduct_name" name="newProduct_name" required><br/>
+						<label for="newroduct_type"><b>Product Category</b></label>
+						<select name="newProduct_type" id="newProduct_type">
+						  <option value="1">Accessories</option>
+						  <option value="2">Keyboards & Mice</option>
+						  <option value="3">Headsets</option>
+						  <option value="4">Gaming Hardware</option>
+						  <option value="5">Mobile Phones</option>
+						  <option value="6">Software</option>
+						</select> 
+						<label for="newProduct_Desc"><b>Product Description</b></label><br/>
+						<textarea placeholder="Enter Product Description" rows="5" id="newProduct_Desc" name="newProduct_Desc" required></textarea><br/>
+						<label for="newProduct_price"><b>Product Price</b></label>
+						<input type="number" placeholder="Enter Product Price" id="newProduct_price" name="newProduct_price" required><br/>
+						<label for="newProduct_qty"><b>Product Quantity</b></label>
+						<input type="number" placeholder="Enter Product Quantity" id="newProduct_qty" name="newProduct_qty" required><br/>	
+						<button id="newProductBtn" class="button" type="submit">Create Product</button><br/><br/>
+						<br/>
+					</div>
+				</div>
+			</div>
+		</article>
+    </body>
+</html>
