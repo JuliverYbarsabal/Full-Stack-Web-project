@@ -156,8 +156,8 @@ nav .icon {
 **/
 .welcome-text{
 	position: absolute;
-	width 600px;
-	height 300px;
+	width: 600px;
+	height: 300px;
 	margin: 15% 20%;
 	text-align: center;
 }

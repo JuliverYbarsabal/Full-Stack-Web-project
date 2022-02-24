@@ -1,5 +1,5 @@
 -- CREATE SCHEMA --
-USE X33303336
+USE phpproject01;
 
 DROP TABLE IF EXISTS tblProductCategory;
 DROP TABLE IF EXISTS tblProduct;

@@ -71,7 +71,7 @@ const ranKingsBody = document.querySelector(".myTable");
 function loadRankings (){
 	const request = new XMLHttpRequest();
 
-	request.open("get", "http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetProducts.php");
+	request.open("get", "http://localhost/serverside/FullstackWebDev/GetProducts.php");
 	request.onload = () => {
 		try{
 			const json = JSON.parse(request.responseText);
@@ -304,7 +304,7 @@ const ranKingsBody_1 = document.querySelector("#myTable_1");
 
 function loadRankings_1 (){
 const request = new XMLHttpRequest();
-	request.open("get", "http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetProductsByCategory.php?Category=1");
+	request.open("get", "http://localhost/serverside/FullstackWebDev/GetProductsByCategory.php?Category=1");
 	request.onload = () => {
 		try{
 			const json = JSON.parse(request.responseText);
@@ -532,7 +532,7 @@ const ranKingsBody_2 = document.querySelector("#myTable_2");
 function loadRankings_2 (){
 	const request = new XMLHttpRequest();
 
-	request.open("get", "http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetProductsByCategory.php?Category=2");
+	request.open("get", "http://localhost/serverside/FullstackWebDev/GetProductsByCategory.php?Category=2");
 	request.onload = () => {
 		try{
 			const json = JSON.parse(request.responseText);
@@ -754,7 +754,7 @@ const ranKingsBody_3 = document.querySelector("#myTable_3");
 function loadRankings_3 (){
 	const request = new XMLHttpRequest();
 
-	request.open("get", "http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetProductsByCategory.php?Category=3");
+	request.open("get", "http://localhost/serverside/FullstackWebDev/GetProductsByCategory.php?Category=3");
 	request.onload = () => {
 		try{
 			const json = JSON.parse(request.responseText);
@@ -980,7 +980,7 @@ const ranKingsBody_4 = document.querySelector("#myTable_4");
 function loadRankings_4 (){
 	const request = new XMLHttpRequest();
 
-	request.open("get", "http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetProductsByCategory.php?Category=4");
+	request.open("get", "http://localhost/serverside/FullstackWebDev/GetProductsByCategory.php?Category=4");
 	request.onload = () => {
 		try{
 			const json = JSON.parse(request.responseText);
@@ -1203,7 +1203,7 @@ const ranKingsBody_5 = document.querySelector("#myTable_5");
 function loadRankings_5 (){
 	const request = new XMLHttpRequest();
 
-	request.open("get", "http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetProductsByCategory.php?Category=5");
+	request.open("get", "http://localhost/serverside/FullstackWebDev/GetProductsByCategory.php?Category=5");
 	request.onload = () => {
 		try{
 			const json = JSON.parse(request.responseText);
@@ -1427,7 +1427,7 @@ const ranKingsBody_6 = document.querySelector("#myTable_6");
 function loadRankings_6 (){
 	const request = new XMLHttpRequest();
 
-	request.open("get", "http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetProductsByCategory.php?Category=6");
+	request.open("get", "http://localhost/serverside/FullstackWebDev/GetProductsByCategory.php?Category=6");
 	request.onload = () => {
 		try{
 			const json = JSON.parse(request.responseText);
@@ -1646,7 +1646,7 @@ function buildTable_6(data){
 $('#purchaseBtn').click(function() {
 	$("#cartMSG").html("");
 	let cartItems = localStorage.getItem("productsInCart");
-	$.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/Purchase.php',{items:JSON.stringify(cartItems)}, function(data, status) {
+	$.post('http://localhost/serverside/FullstackWebDev/Purchase.php',{items:JSON.stringify(cartItems)}, function(data, status) {
 	if (status == "success"){
 		let response = JSON.parse(data);
 		if(response == "SUCCESS"){
@@ -1667,7 +1667,7 @@ $('#purchaseBtn').click(function() {
 //Display edit product page
 function editProduct(pid){
 	window.location.hash = "#editProduct";
-	$.get('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetProducts.php?ID=' + pid, function(data, status){
+	$.get('http://localhost/serverside/FullstackWebDev/GetProducts.php?ID=' + pid, function(data, status){
 		let productData = JSON.parse(data);
 		productData = productData[0];
 		$("#editProduct_type").val(productData['FkProductCategory']).change();
@@ -1706,7 +1706,7 @@ $('#editProductBtn').click(function() {
 		editData['price'] = $("#editProduct_price").val();
 		editData['qty'] = $("#editProduct_qty").val();
 
-		$.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/UpdateProduct.php',{edit:JSON.stringify(editData)}, function(data, status) {
+		$.post('http://localhost/serverside/FullstackWebDev/UpdateProduct.php',{edit:JSON.stringify(editData)}, function(data, status) {
 		if (status == "success"){
 			let response = JSON.parse(data);
 			
@@ -1726,7 +1726,7 @@ $('#editProductBtn').click(function() {
 $('#deleteProductBtn').click(function() {
 	productID = $("#editProduct_productID").val();
 	$("#editProductMSG").html("");
-	$.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/DeleteProduct.php',{product:JSON.stringify(productID)}, function(data, status) {
+	$.post('http://localhost/serverside/FullstackWebDev/DeleteProduct.php',{product:JSON.stringify(productID)}, function(data, status) {
 	if (status == "success"){
 		let response = JSON.parse(data);	
 		if(response="Success"){
@@ -1767,7 +1767,7 @@ $('#newProductBtn').click(function() {
 		productData['price'] = $("#newProduct_price").val();
 		productData['qty'] = $("#newProduct_qty").val();
 
-		$.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/CreateProduct.php',{product:JSON.stringify(productData)}, function(data, status) {
+		$.post('http://localhost/serverside/FullstackWebDev/CreateProduct.php',{product:JSON.stringify(productData)}, function(data, status) {
 		if (status == "success"){
 			let response = JSON.parse(data);
 			if(response == "SUCCESS"){

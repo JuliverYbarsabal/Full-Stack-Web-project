@@ -1,9 +1,9 @@
 <?php
 //Set MySQL database config
 $server = "localhost";
-$username = "X33303336";
-$password = "X33303336";
-$database = "X33303336";
+$username = "root";
+$password = "";
+$database = "phpproject01";
 
 //Connect to MySQL database
 $conn = new mysqli($server, $username, $password, $database);

@@ -27,9 +27,10 @@ function toggleAccordion(element){
 	}	
 }
 
+
 //Display user information in the my account page
 function displayMyAccInfo(){
-	$.get('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetUserInfo.php?SID=' + SessionID, function(data, status){
+	$.get('http://localhost/serverside/FullstackWebDev/GetUserInfo.php?SID=' + SessionID, function(data, status){
     if (status == "success"){
         let user = JSON.parse(data);
         $("#updateAcc_username").val(user['UserName']);
@@ -43,9 +44,10 @@ function displayMyAccInfo(){
     });
 }
 
+
 //Display user list for staff users to view
 function displayUserList(){
-	$.get('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetUserList.php', function(data, status){
+	$.get('http://localhost/serverside/FullstackWebDev/GetUserList.php', function(data, status){
     if (status == "success"){
         let userData = JSON.parse(data);
         let users = userData['User'];
@@ -61,7 +63,7 @@ function displayUserList(){
 function edituser(UserID){
     window.location.href = "#edituser";
     $("#editAccountMSG").html("");
-    $.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetUser.php',{user:JSON.stringify(UserID)}, function(data, status) {
+    $.post('http://localhost/serverside/FullstackWebDev/GetUser.php',{user:JSON.stringify(UserID)}, function(data, status) {
         if (status == "success"){
             let user = JSON.parse(data);
             $("#editAcc_UserType").val(user['FkUserCategory']).change();
@@ -106,7 +108,7 @@ $(document).ready(function(){
             updateData['phone'] = $("#updateAcc_phone").val();
             updateData['password'] = $("#updateAcc_password").val();
 
-            $.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/UpdateUserInfo.php?SID=' + SessionID,{update:JSON.stringify(updateData)}, function(data, status) {
+            $.post('http://localhost/serverside/FullstackWebDev/UpdateUserInfo.php?SID=' + SessionID,{update:JSON.stringify(updateData)}, function(data, status) {
             if (status == "success"){
                 let response = JSON.parse(data);
                 $("#updateAccountMSG").html(response);
@@ -144,7 +146,7 @@ $(document).ready(function(){
             editData['phone'] = $("#updateAcc_phone").val();
             editData['password'] = $("#editAcc_password").val();
 
-            $.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/UpdateUserInfo_Staff.php',{edit:JSON.stringify(editData)}, function(data, status) {
+            $.post('http://localhost/serverside/FullstackWebDev/UpdateUserInfo_Staff.php',{edit:JSON.stringify(editData)}, function(data, status) {
             if (status == "success"){
                 let response = JSON.parse(data);
                 $("#editAccountMSG").html(response);
@@ -156,7 +158,7 @@ $(document).ready(function(){
     $('#deleteAccBtn').click(function() {
         userID = $("#editAcc_userID").val();
         $("#editAccountMSG").html("");
-        $.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/DeleteUser.php',{user:JSON.stringify(userID)}, function(data, status) {
+        $.post('http://localhost/serverside/FullstackWebDev/DeleteUser.php',{user:JSON.stringify(userID)}, function(data, status) {
         if (status == "success"){
             let response = JSON.parse(data);
             $("#editAccountMSG").html(response);

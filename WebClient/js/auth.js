@@ -19,7 +19,7 @@ $(document).ready(function(){
             loginData['username'] = $("#login_username").val();
             loginData['password'] = $("#login_password").val();
 
-            $.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/Login.php',{login:JSON.stringify(loginData)}, function(data, status) {
+            $.post('http://localhost/serverside/FullstackWebDev/Login.php',{login:JSON.stringify(loginData)}, function(data, status) {
             if (status == "success"){
                 let loginResponse = JSON.parse(data);
                 if(loginResponse == 0){
@@ -69,7 +69,7 @@ $(document).ready(function(){
             registerData['phone'] = $("#register_phone").val();
             registerData['password'] = $("#register_password").val();
 
-            $.post('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/Register.php',{register:JSON.stringify(registerData)}, function(data, status) {
+            $.post('http://localhost/serverside/FullstackWebDev/Register.php',{register:JSON.stringify(registerData)}, function(data, status) {
             if (status == "success"){
                 let registerResponse = JSON.parse(data);
                 $("#RegisterMSG").html(registerResponse);
@@ -82,8 +82,9 @@ $(document).ready(function(){
     }); 
 });
 
+
 function GetUserSession(handleData) {
-	$.get('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/GetUserSession.php?SID=' + SessionID, function(data, status){
+	$.get('http://localhost/serverside/FullstackWebDev/GetUserSession.php?SID=' + SessionID, function(data, status){
     if (status == "success"){
         handleData(JSON.parse(data));
     }
@@ -94,7 +95,7 @@ function GetUserSession(handleData) {
 }
 
 function Logout(){
-	$.get('http://ceto.murdoch.edu.au/~33303336/assignment2/Server/Logout.php?SID=' + SessionID, function(data, status){
+	$.get('http://localhost/serverside/FullstackWebDev/Logout.php?SID=' + SessionID, function(data, status){
         window.location.href = "#home";
     });
 }
