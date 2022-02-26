@@ -1,6 +1,8 @@
 # Full-Stack-Web-project
 Front end and back end web project
 
+Software used: Visual studio code
+
 Use only the following technologies: HTML5, CSS, JavaScript, PHP, MySQL Database, jQuery, Ajax,.
 
 online trading company that sells many different products using its company web and/or mobile application
